@@ -3,7 +3,6 @@ package entity;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @DynamicUpdate
@@ -20,9 +19,9 @@ public class Author {
     @Column(name = "last_name")
     private String lastName;
 
-    @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name = "Books_Authors",
+            name = "Authors_Books",
             joinColumns = { @JoinColumn(name = "book_id") },
             inverseJoinColumns = { @JoinColumn(name = "author_id") }
     )

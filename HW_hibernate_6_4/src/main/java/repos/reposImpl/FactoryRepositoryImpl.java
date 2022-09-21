@@ -7,9 +7,9 @@ import repos.FactoryRepository;
 
 public class FactoryRepositoryImpl implements FactoryRepository {
 
-    private static FactoryRepository factory;
+    private static FactoryRepositoryImpl factory;
 
-    public static synchronized FactoryRepository getInstance() {
+    public static synchronized FactoryRepositoryImpl getInstance() {
         factory = new FactoryRepositoryImpl();
         return factory;
     }

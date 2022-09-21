@@ -1,11 +1,10 @@
-package repos;
+package services;
 
 import entity.AuthorBookDto;
 
 import java.util.List;
 
-public interface AuthorBookRepository {
-    @SuppressWarnings("unchecked")
+public interface AuthorBookService {
     void addAuthorToBook(long authorId, long bookId);
 
     List<AuthorBookDto> getAuthorBookDtoByAuthorId(long id);

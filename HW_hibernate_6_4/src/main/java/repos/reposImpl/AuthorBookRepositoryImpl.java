@@ -1,14 +1,9 @@
 package repos.reposImpl;
-
-
 import entity.AuthorBookDto;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-
 import org.hibernate.query.Query;
 import utils.HibernateUtil;
-
-
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -24,7 +19,7 @@ public class AuthorBookRepositoryImpl implements repos.AuthorBookRepository {
 
     @Override
     @SuppressWarnings("unchecked")
-    public void addAuthorToBook(Long authorId, Long bookId) {
+    public void addAuthorToBook(long authorId, long bookId) {
         AuthorBookDto authorBookDto = new AuthorBookDto(authorId, bookId);
         Session session = sessionFactory.openSession();
         session.beginTransaction();
@@ -33,8 +28,8 @@ public class AuthorBookRepositoryImpl implements repos.AuthorBookRepository {
         session.close();
     }
 
-    @Override
-    public List<AuthorBookDto> getAuthorBookDtoByAuthorId(Integer id) {
+@Override
+    public List<AuthorBookDto> getAuthorBookDtoByAuthorId(long id) {
         Session session = sessionFactory.openSession();
         Query<AuthorBookDto> query = session.createQuery("select ab from AuthorBookDto ab where ab.authorId = :id");
         query.setParameter("id", id);
@@ -44,7 +39,7 @@ public class AuthorBookRepositoryImpl implements repos.AuthorBookRepository {
     }
 
     @Override
-    public List<AuthorBookDto> getAuthorBookDtoByBookId(Integer id) {
+    public List<AuthorBookDto> getAuthorBookDtoByBookId(long id) {
         Session session = sessionFactory.openSession();
         Query<AuthorBookDto> query = session.createQuery("select ab from AuthorBookDto ab where ab.bookId = :id");
         query.setParameter("id", id);
@@ -52,7 +47,6 @@ public class AuthorBookRepositoryImpl implements repos.AuthorBookRepository {
         session.close();
         return list;
     }
-
 
 
 }

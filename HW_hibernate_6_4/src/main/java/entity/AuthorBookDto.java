@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Books_Authors")
+@Table(name = "Authors_Books")
 public class AuthorBookDto implements Serializable {
     @Id
     @Column(name = "author_id")
@@ -22,19 +22,19 @@ public class AuthorBookDto implements Serializable {
 
     }
 
-    public Long getAuthorId() {
+    public long getAuthorId() {
         return authorId;
     }
 
-    public void setAuthorId(Long authorId) {
+    public void setAuthorId(long authorId) {
         this.authorId = authorId;
     }
 
-    public Long getBookId() {
+    public long getBookId() {
         return bookId;
     }
 
-    public void setBookId(Long bookId) {
+    public void setBookId(long bookId) {
         this.bookId = bookId;
     }
 

@@ -90,7 +90,7 @@ public class AuthorRepositoryImpl implements AuthorRepository {
     @SuppressWarnings("uncheked")
     public Boolean isAuthorExist(Long id) {
         Session session = sessionFactory.openSession();
-        Author author = session.get(Author.class, id);
+        //Author author = session.get(Author.class, id);
         Query<Author> query = session.createQuery("select b from Author b where id = :id");
         query.setParameter("id", id);
         boolean isExist = query.uniqueResult() != null;

@@ -119,7 +119,7 @@ public class BookRepositoryImpl implements BookRepository {
 
     public Boolean isBookExist(Long id) {
         Session session = sessionFactory.openSession();
-        Book book = session.get(Book.class, id);
+        //Book book = session.get(Book.class, id);
         org.hibernate.query.Query<Book> query = session.createQuery("select b from Book b where id = :id");
         query.setParameter("id", id);
         boolean isExist = query.uniqueResult() != null;
